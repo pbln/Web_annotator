@@ -13,7 +13,7 @@ chrome.storage.local.get(['highlightColor' , 'note'], (data) => {
     const span = document.createElement('span');
     span.style.backgroundColor = color;
     span.style.color = 'black';
-    span.title = note;
+    span.title = note
 
     span.appendChild(range.extractContents());
     range.insertNode(span);
