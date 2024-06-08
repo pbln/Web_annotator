@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const sortOptions = document.getElementById('sortOptions');
     sortOptions.addEventListener('change', renderSortedHighlights);
@@ -48,14 +49,14 @@ function renderSortedHighlights() {
         
         const btn = document.createElement('button');
         btn.className = 'delete-button';
-        btn.innerHTML = '<i class="fas fa-times"></i>'; // Font Awesome icon
+        btn.innerHTML = '<i class="fas fa-times"></i>'; 
 
         btn.dataset.storageKey = key;
 
         btn.addEventListener('click', () => {
             highlightsContainer.removeChild(highlight);
             chrome.storage.local.remove(btn.dataset.storageKey, () => {
-                console.log(`Item with key "${btn.dataset.storageKey}" removed.`);
+            console.log(`Item with key "${btn.dataset.storageKey}" removed.`);
             });
         });
 

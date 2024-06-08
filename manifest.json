@@ -2,8 +2,10 @@
     "manifest_version": 3,
     "name": "Web Annotator",
     "version": "1.0",
+    "host_permissions": ["<all_urls>"],
     "description": "Annotate and highlight web pages.",
-    "permissions": ["storage", "activeTab", "scripting","contextMenus"],
+    "permissions": ["storage", "activeTab","tabs", "scripting","contextMenus","webNavigation"
+    ],
     "background": {
       "service_worker": "background.js"
     },
@@ -14,7 +16,7 @@
       {
         "matches": ["<all_urls>"],
         "js": ["content.js"],
-        "run_at": "document_end"
+        "run_at": "document_idle"
       }
     ],
     "web_accessible_resources": [
