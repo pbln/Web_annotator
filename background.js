@@ -1,4 +1,3 @@
-// background.js
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
@@ -84,10 +83,7 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     });
   }
 });
-function clearStorage() {
-  chrome.storage.local.clear(() => {
-    console.log('All items cleared from chrome.storage.local');
-  });
-}
 
-//clearStorage()
+
+
+

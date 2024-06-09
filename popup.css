@@ -5,7 +5,7 @@ body, h1, div {
   box-sizing: border-box;
 }
 
-/* Set font family for the entire popup */
+
 body {
   font-family: Arial, sans-serif;
   width: 500px;
@@ -13,7 +13,7 @@ body {
   background-color: #f4f4f9;
 }
 
-/* Style for the title */
+
 h1 {
   font-size: 18px;
   color: #333;
@@ -21,7 +21,6 @@ h1 {
   text-align: center;
 }
 
-/* Container for highlights */
 #highlights {
   max-height: 400px;
   overflow-y: auto;
@@ -31,7 +30,7 @@ h1 {
   border-radius: 5px;
 }
 
-/* Individual highlight container */
+
 #highlights > div {
   padding: 10px;
   position: relative;
@@ -40,15 +39,20 @@ h1 {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Text of the highlighted section */
+
 #highlights > div {
   color: #000;
   font-size: 14px;
   line-height: 1.5;
 }
 
-/* Style for notes */
-#highlights > div > p {
+#highlights > div > p{
+   margin: 5px 0;
+    color: #666a6a;
+    font-weight: 300;
+}
+
+.comment {
   margin-top: 5px;
   padding: 5px;
   background-color: #eef;
@@ -58,7 +62,7 @@ h1 {
   border-radius: 3px;
 }
 
-/* Scrollbar styling */
+
 #highlights::-webkit-scrollbar {
   width: 8px;
 }
@@ -72,34 +76,94 @@ h1 {
   background-color: #aaa;
 }
 
-
-
-/* Styling for sorting dropdown */
-#sortOptions {
-  width: 100%;
-  padding: 5px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px; 
 }
+
+select {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: none;
+  color: #333;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a,
+.dropdown-content button {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+.dropdown-content button:hover 
+{ 
+   background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 
 .delete-button {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0px;
+  right: 0px;
   background: none;
   border: none;
-  color: red;
+  color: #333;
   font-size: 16px;
   cursor: pointer;
   display: none;
 }
 
-.highlight:hover .delete-button {
+.save-btn{
+  position: absolute;
+  top: 0px;
+  right: 18px;
+  background: none;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  display: none;
+}
+
+.highlight:hover .delete-button{
   display: block;
 }
-.delete-button i {
-  font-family: 'Font Awesome 6 Free'; /* Ensures the correct font family */
-  font-weight: 900; /* Ensures the correct font weight */
+
+.highlight:hover .save-btn{
+  display: block;
+}
+
+.delete-button  i {
+  font-family: 'Font Awesome 6 Free'; 
+  font-weight: 900; 
 }

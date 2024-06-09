@@ -4,13 +4,26 @@
   <title>Highlights</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" type="text/css" href="popup.css">
+  
 </head>
 <body>
   <h1>Saved Highlights</h1>
-  <select id="sortOptions">
-    <option value="date">Sort by Date</option>
-    <option value="color">Sort by Color</option>
-  </select>
+  <div class="nav">
+    <div class="dropdown">
+      <button class="dropbtn"><i class="fa-solid fa-list"></i></button>
+      <div class="dropdown-content">
+        <button id="dltall">Delete All</button>
+        <a  href="options.html" target="_blank">Options..</a>
+      </div>
+    </div>
+      <select id="sortOptions">
+        <option value="date">Sort by Date</option>
+        <option value="color">Sort by Color</option>
+        </select>
+    
+  </div>
+  
+
   <div id="highlights"></div>
   <script  src="popup.js"></script>
 </body>

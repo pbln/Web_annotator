@@ -2,15 +2,14 @@ window.addEventListener('load', () => {
   restoreHighlights();
 });
 
+ chrome.storage.local.get(['highlightColor', 'note'], (data) => {
+      const color = data.highlightColor || 'yellow';
+      const note = data.note || '';
+      highlight(color, note);
+    });
+ 
 
-  chrome.storage.local.get(['highlightColor', 'note'], (data) => {
-    const color = data.highlightColor || 'yellow';
-    const note = data.note || '';
-    highlight(color, note);
-  });
-
-
-function highlight(color, note) {
+ function highlight(color, note) {
   const selection = window.getSelection();
   if (!selection.rangeCount) return;
 
@@ -20,6 +19,7 @@ function highlight(color, note) {
   const startOffset = range.startOffset;
   const endOffset = range.endOffset;
   const url = window.location.href;
+  const title = document.title ; 
   const date = new Date().toISOString();
   const key = `${Date.now()}`;
 
@@ -32,11 +32,11 @@ function highlight(color, note) {
     color,
     date,
     note,
-    url
+    url,title
   };
 
   const span = document.createElement('span');
-  span.style.backgroundColor = color;
+  span.style.backgroundColor = color||"yellow";
   span.style.color = 'black';
   span.title = note;
 
@@ -71,6 +71,8 @@ function restoreHighlights() {
   });
 }
 
+
+//all this x path code has been taken from stack overflow / some other sites . 
 function getXPath(node) {
   if (node.nodeType === Node.TEXT_NODE) {
     return getXPath(node.parentNode) + '/text()[' + getTextNodeIndex(node) + ']';

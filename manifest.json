@@ -1,17 +1,30 @@
 {
     "manifest_version": 3,
-    "name": "Web Annotator",
+    "name": "SimplyHighlight",
     "version": "1.0",
     "host_permissions": ["<all_urls>"],
-    "description": "Annotate and highlight web pages.",
+    "description": "Annotate. Highlight. Save.",
     "permissions": ["storage", "activeTab","tabs", "scripting","contextMenus","webNavigation"
     ],
+    "commands": {
+    "highlight": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+H",
+        "mac": "Command+Shift+H"
+      },
+      "description": "Highlight selected text"
+    }
+  },
     "background": {
       "service_worker": "background.js"
     },
+    "icons": {
+      "48": "icon.png"
+  },
     "action": {
       "default_popup": "popup.html"
     },
+    "options_page" :"options.html",
     "content_scripts": [
       {
         "matches": ["<all_urls>"],
