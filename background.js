@@ -50,22 +50,22 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     }, (results) => {
       if (results && results[0].result) {
         const { note } = results[0].result;
-        chrome.storage.local.set({ highlightColor: 'yellow', note: note }, () => {
+        
           chrome.scripting.executeScript({
             target: { tabId: tab.id },
             files: ["content.js"]
-          });
-        });
+          }, ()=> chrome.tabs.sendMessage(tab.id , {clr:"yellow" , note}));
+     
       }
     });
   } else {
     let clr = info.menuItemId;
-    chrome.storage.local.set({ highlightColor: clr, note: '' }, () => {
+    
       chrome.scripting.executeScript({
         target: { tabId: tab.id },
         files: ["content.js"]
-      });
-    });
+      }, ()=> chrome.tabs.sendMessage(tab.id , {clr , note:''}));
+    
   }
 });
 

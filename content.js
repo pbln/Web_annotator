@@ -2,11 +2,13 @@ window.addEventListener('load', () => {
   restoreHighlights();
 });
 
- chrome.storage.local.get(['highlightColor', 'note'], (data) => {
-      const color = data.highlightColor || 'yellow';
-      const note = data.note || '';
-      highlight(color, note);
-    });
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  const color = message.clr || 'yellow';
+  const note = message.note || '';
+  highlight(color, note);
+});
+      
+    
  
 
  function highlight(color, note) {
